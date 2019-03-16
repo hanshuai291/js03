@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <style>
+        * {
+            margin: 0px;
+            padding: 0px;
+        }
+
+        #box {
+            width: 100px;
+            height: 100px;
+            background-color: #CCCCCC;
+            position: absolute;
+        }
+    </style>
+    <script>
+        window.onload = function () {
+
+            var box = document.getElementById("box");
+            var btn = document.getElementById("btn");
+            var timer;
+
+            btn.onclick = function () {
+                clearInterval(timer);
+                timer = setInterval(function () {
+                    var oldValue = box.offsetLeft;
+                    var newValue = oldValue + 10;
+                    if (newValue > 800) {
+                        newValue = 800;
+                    }
+                   box.style.left = newValue + "px";
+                    if (newValue==800){
+                        setInterval(timer);
+                    }
+
+                },30)
+
+            }
+
+        }
+
+    </script>
+</head>
+<body>
+<button id="btn">move!!</button>
+<br>
+<br>
+<div id="box">
+</div>
+<div style="width: 0px; height: 1000px;border-left: 1px solid seagreen;position: absolute;left: 800px; top: 0px">
+
+</div>
+</body>
+</html>
